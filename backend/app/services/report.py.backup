@@ -1,0 +1,64 @@
+from pathlib import Path
+from reportlab.lib.pagesizes import A4
+from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, Table, TableStyle
+from reportlab.lib import colors
+from reportlab.lib.styles import getSampleStyleSheet
+from reportlab.lib.units import mm
+
+REPORT_DIR = Path(__file__).resolve().parents[2] / "reports"
+REPORT_DIR.mkdir(exist_ok=True)
+
+def build_report(farmer, test, analysis, recommendations, weather=None):
+    path = REPORT_DIR / f"{test.test_id}.pdf"
+    styles = getSampleStyleSheet()
+    doc = SimpleDocTemplate(str(path), pagesize=A4, rightMargin=16*mm, leftMargin=16*mm, topMargin=16*mm, bottomMargin=16*mm)
+    story = [
+        Paragraph("KrushiAI — Soil Testing & Crop Recommendation Report", styles["Title"]),
+        Paragraph("Intelligent Soil Analysis and AI-Assisted Crop Recommendation", styles["Normal"]),
+        Spacer(1, 8),
+        Paragraph(f"<b>Test ID:</b> {test.test_id}", styles["Normal"]),
+        Paragraph(f"<b>Data Source:</b> {test.input_source}", styles["Normal"]),
+        Spacer(1, 8),
+        Paragraph("Farmer Information", styles["Heading2"]),
+    ]
+    farmer_rows = [
+        ["Name", farmer.name], ["Mobile", farmer.mobile], ["Village", farmer.village],
+        ["Taluka", farmer.taluka], ["District", farmer.district], ["State", farmer.state],
+        ["Farm/Plot", farmer.farm_name or "Not supplied"], ["Preferred Crop", farmer.preferred_crop or "Not supplied"]
+    ]
+    t = Table(farmer_rows, colWidths=[45*mm, 125*mm])
+    t.setStyle(TableStyle([("GRID",(0,0),(-1,-1),0.5,colors.grey),("BACKGROUND",(0,0),(0,-1),colors.whitesmoke)]))
+    story += [t, Spacer(1,8), Paragraph("Soil Measurements", styles["Heading2"])]
+    soil_rows = [["Parameter","Value","Status"]]
+    for key, label in [
+        ("nitrogen","Nitrogen"),("phosphorus","Phosphorus"),("potassium","Potassium"),
+        ("soil_moisture","Soil Moisture"),("air_temperature","Air Temperature"),("humidity","Humidity")
+    ]:
+        item = analysis["parameters"][key]
+        soil_rows.append([label, str(item["value"]), item["status"]])
+    t2 = Table(soil_rows, colWidths=[70*mm,45*mm,55*mm])
+    t2.setStyle(TableStyle([("GRID",(0,0),(-1,-1),0.5,colors.grey),("BACKGROUND",(0,0),(-1,0),colors.lightgrey)]))
+    story += [t2, Spacer(1,8)]
+    if weather:
+        story += [Paragraph("Weather Context", styles["Heading2"])]
+        story.append(Paragraph(
+            f"Temperature: {weather.get('temperature')} | Humidity: {weather.get('humidity')} | "
+            f"Rainfall: {weather.get('rainfall')} | Wind: {weather.get('wind_speed')} | "
+            f"Source: {weather.get('source')}", styles["Normal"]))
+        story.append(Spacer(1,8))
+    story += [Paragraph("AI Crop Recommendations", styles["Heading2"])]
+    rec_rows = [["Crop","Model Probability","Suitability"]]
+    for r in recommendations:
+        prob = "--" if r.ml_probability is None else f"{r.ml_probability*100:.1f}%"
+        rec_rows.append([r.crop, prob, r.suitability])
+    tr = Table(rec_rows, colWidths=[55*mm,55*mm,60*mm])
+    tr.setStyle(TableStyle([("GRID",(0,0),(-1,-1),0.5,colors.grey),("BACKGROUND",(0,0),(-1,0),colors.lightgrey)]))
+    story += [tr, Spacer(1,6)]
+    for r in recommendations:
+        story.append(Paragraph(f"<b>{r.crop}</b>: {r.explanation}", styles["Normal"]))
+        story.append(Spacer(1,4))
+    story += [Spacer(1,8), Paragraph(
+        "Important: This system is a decision-support prototype. Recommendations should be validated with local agronomic guidance and, where appropriate, laboratory soil testing before farm decisions.",
+        styles["Italic"])]
+    doc.build(story)
+    return path

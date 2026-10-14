@@ -1,0 +1,32 @@
+@'
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.env
+.env.*
+!.env.example
+
+# Databases and local data
+*.db
+*.sqlite
+*.sqlite3
+
+# ML model artifacts
+*.joblib
+*.pkl
+
+# Frontend
+node_modules/
+dist/
+
+# Generated reports and logs
+backend/reports/
+*.log
+
+# OS and editor files
+.DS_Store
+Thumbs.db
+.vscode/
+'@ | Set-Content .gitignore
