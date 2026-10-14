@@ -1,32 +1,111 @@
-# KrushiAI — Module 1
+
 ## AI-IoT Based Soil Testing and Crop Recommendation
+### 🚜 Smart Farming • Intelligent Soil • Better Crop Decisions
 
-A complete local full-stack implementation for:
-**Intelligent Soil Analysis and AI-Assisted Crop Recommendation**
+<p align="center">
+  <strong>🌾 From Soil Testing to AI-Powered Crop Recommendations 🌾</strong>
+</p>
 
-### Stack
-- Frontend: React + Vite + Tailwind CSS + Axios + Recharts
-- Backend: FastAPI + SQLAlchemy + Pydantic
-- Database: SQLite by default; MySQL supported through `DATABASE_URL`
-- ML: scikit-learn Random Forest
-- RAG: local TF-IDF retrieval over agricultural knowledge documents
-- AI explanation: local deterministic explanation engine; optional LLM hook can be added later
-- Reports: ReportLab PDF
-- IoT: ESP32 + RS485/MAX485 + NPK + DHT + soil moisture
-- Developer sensor simulator included
+<p align="center">
+  An AI + IoT-based smart agriculture system that helps farmers understand soil conditions and make informed crop decisions.
+</p>
 
-### Important data policy
-The application does not invent farmer, sensor, GPS, weather, or test-history values.
-When real values are unavailable it displays an empty/waiting state.
-The bundled ML dataset is explicitly a **demo/training dataset** so the project can run offline. Replace it with a validated agricultural dataset before making real agronomic decisions.
+<p align="center">
+  <img src="https://img.shields.io/badge/AI-Machine%20Learning-2E7D32?style=for-the-badge" alt="AI and Machine Learning">
+  <img src="https://img.shields.io/badge/IoT-ESP32-1565C0?style=for-the-badge" alt="IoT ESP32">
+  <img src="https://img.shields.io/badge/Backend-FastAPI-009688?style=for-the-badge" alt="FastAPI">
+  <img src="https://img.shields.io/badge/Frontend-React-61DAFB?style=for-the-badge" alt="React">
+  <img src="https://img.shields.io/badge/Domain-Smart%20Agriculture-8BC34A?style=for-the-badge" alt="Smart Agriculture">
+</p>
 
 ---
 
-# Windows quick start
+## 🌾 About the Project
 
-## 1. Backend
+**KrushiAI** combines soil sensing, machine learning, and intelligent analysis to support data-driven farming.
 
-Open PowerShell in this folder:
+Farmers can enter soil values manually or use a developer sensor simulator to explore soil analysis and crop recommendations.
+
+### 🌿 Key Features
+
+- 🧪 **Soil Testing:** Capture Nitrogen (N), Phosphorus (P), Potassium (K), moisture, temperature, and humidity.
+- 📡 **IoT Integration:** Designed for ESP32 and RS485/MAX485-based soil sensor integration.
+- 🤖 **AI Crop Recommendation:** Random Forest model for crop prediction.
+- 🌦️ **Weather & Location:** Supports weather data retrieval and location-aware analysis.
+- 🧠 **Agricultural Knowledge:** Local TF-IDF-based retrieval and AI-assisted explanations.
+- 📄 **PDF Reports:** Generate downloadable soil analysis and crop recommendation reports.
+- 👨‍🌾 **Farmer Management:** Maintain farmer profiles and soil-test history.
+- 🖥️ **Sensor Simulation:** Test the workflow without physical hardware.
+
+---
+
+## 🧪 Soil Intelligence — NPK
+
+| Nutrient | Full Form | Why It Matters |
+|---|---|---|
+| 🟢 **N** | Nitrogen | Supports leafy and vegetative growth |
+| 🟠 **P** | Phosphorus | Supports root development and energy transfer |
+| 🔵 **K** | Potassium | Supports plant health and stress tolerance |
+
+Additional readings include 🌡️ temperature, 💧 soil moisture, and 💨 humidity.
+
+---
+
+## 🛠️ Technology Stack
+
+| Layer | Technologies |
+|---|---|
+| 🎨 Frontend | React, Vite, Tailwind CSS, Axios, Recharts |
+| ⚙️ Backend | Python, FastAPI, SQLAlchemy, Pydantic |
+| 🧠 Machine Learning | scikit-learn, Random Forest |
+| 🔎 Knowledge Retrieval | TF-IDF |
+| 🗄️ Database | SQLite by default; MySQL supported through configuration |
+| 📡 Hardware | ESP32, RS485/MAX485, NPK sensor, DHT sensor, soil moisture sensor |
+| 📑 Reports | ReportLab PDF |
+
+---
+
+## 🏗️ System Architecture
+
+```text
+👨‍🌾 Farmer
+    │
+    ▼
+🖥️ React Frontend
+    │
+    ▼
+⚙️ FastAPI Backend
+    │
+    ├── 🧪 Soil Analysis (NPK + Environmental Data)
+    ├── 🌦️ Weather & Location
+    ├── 🤖 Random Forest Crop Prediction
+    ├── 🧠 Agricultural Knowledge Retrieval
+    ├── 📄 PDF Report Generation
+    └── 🗄️ Farmer & Soil-Test Records
+
+📡 ESP32 + Soil Sensors ──► FastAPI
+```
+
+---
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+- Python 3.11 recommended
+- Node.js and npm
+- Git
+
+### 1️⃣ Clone the Repository
+
+```bash
+git clone https://github.com/YOUR_USERNAME/KrushiAI-Module1.git
+cd KrushiAI-Module1
+```
+
+### 2️⃣ Start the Backend
+
+Open PowerShell in the project directory:
 
 ```powershell
 cd backend
@@ -34,19 +113,16 @@ python -m venv .venv
 .\.venv\Scripts\Activate.ps1
 pip install -r requirements.txt
 python -m app.ml.train
-pytest
 uvicorn app.main:app --reload
 ```
 
-Backend:
-- API: http://localhost:8000
-- Swagger: http://localhost:8000/docs
+Backend API: `http://localhost:8000`
 
-Keep this terminal open.
+API documentation: `http://localhost:8000/docs`
 
-## 2. Frontend
+### 3️⃣ Start the Frontend
 
-Open a second PowerShell:
+Open a second terminal from the project root:
 
 ```powershell
 cd frontend
@@ -54,94 +130,65 @@ npm install
 npm run dev
 ```
 
-Open:
-http://localhost:5173
+Open the application at `http://localhost:5173`.
 
-## 3. Database
+### 4️⃣ Configure Environment Variables
 
-No MySQL installation is required for the first run.
-The project defaults to:
+Use the example files as templates:
+
+- Root: `.env.example`
+- Frontend: `frontend/.env.example`
+
+Configure local settings as needed. **Never commit real API keys, passwords, or private credentials.**
+
+### 5️⃣ Explore the Workflow
+
+1. 👨‍🌾 Create a farmer profile.
+2. 🧪 Enter soil values or use the sensor simulator.
+3. 📊 Analyze soil conditions.
+4. 🌦️ Provide or confirm location details.
+5. 🤖 Generate a crop recommendation.
+6. 📄 Download the soil-test report.
+7. 📚 Review soil-test history.
+
+---
+
+## 📁 Project Structure
 
 ```text
-backend/krushiai.db
+KrushiAI-Module1/
+├── backend/       # FastAPI, ML, database, reports
+├── frontend/      # React + Vite application
+├── iot/           # ESP32 and sensor integration
+├── docs/          # Project documentation
+├── .env.example   # Backend configuration template
+├── .gitignore
+├── README.md
+├── run_backend.ps1
+└── run_frontend.ps1
 ```
-
-To use MySQL later, set:
-
-```env
-DATABASE_URL=mysql+pymysql://USER:PASSWORD@localhost:3306/krushiai
-```
-
-## 4. Demo sensor
-
-The dashboard contains a developer-only sensor simulator.
-It sends clearly labelled simulated readings to the backend.
-
-For actual hardware, see:
-`iot/esp32/README.md`
 
 ---
 
-# End-to-end demo flow
+## ⚠️ Important Disclaimer
 
-1. Create farmer profile.
-2. Start a manual soil test OR use the developer sensor simulator.
-3. Save soil test.
-4. Run soil analysis.
-5. Enter/confirm location.
-6. Fetch weather if internet is available; otherwise continue without weather.
-7. Run crop recommendation.
-8. Review preferred crop comparison.
-9. Generate PDF report.
-10. Open Test History.
+- 🌱 The bundled ML dataset is for demonstration and training.
+- 🤖 Crop recommendations are decision-support suggestions, not guaranteed agricultural advice.
+- 🧪 Validate the model using reliable, region-specific agricultural data before real-world use.
+- 📡 Real hardware readings depend on compatible sensors, calibration, and integration.
+- 🔐 Do not publish real farmer records, local databases, API keys, or personal information.
 
 ---
 
-# API highlights
+## 🔮 Project Vision
 
-- GET `/api/health`
-- GET `/api/system/status`
-- POST `/api/farmers`
-- GET `/api/farmers/{farmer_id}`
-- POST `/api/soil/manual`
-- POST `/api/soil/read`
-- POST `/api/soil/analyze`
-- POST `/api/weather/fetch`
-- POST `/api/crop/recommend`
-- POST `/api/soil-tests/{test_id}/report`
-- GET `/api/soil-tests`
-- GET `/api/soil-tests/{test_id}`
-- POST `/api/dev/simulate-soil-reading`
+**From Soil Data to Smarter Farming. 🌱**
 
-Swagger:
-http://localhost:8000/docs
+KrushiAI aims to make agricultural technology more accessible by combining IoT sensing, machine learning, and farmer-friendly decision support.
 
----
+<p align="center">
+  🌾 🧪 🤖 📡 🌱
+  <br>
+  <strong>KrushiAI — Growing Intelligence for Agriculture</strong>
+</p>
 
-# Architecture
-
-```text
-                 ┌─────────────────────┐
-                 │     React UI        │
-                 └──────────┬──────────┘
-                            │ REST
-                 ┌──────────▼──────────┐
-                 │     FastAPI         │
-                 ├─────────────────────┤
-                 │ Farmer / Soil APIs  │
-                 │ Weather / Reports   │
-                 │ ML / RAG / AI       │
-                 └───────┬─────┬───────┘
-                         │     │
-                ┌────────▼─┐ ┌─▼─────────────┐
-                │ Database │ │ Random Forest │
-                └──────────┘ └──────┬────────┘
-                                    │
-                               ┌────▼────┐
-                               │   RAG   │
-                               └────┬────┘
-                                    │
-                               AI Explanation
-
-ESP32 → RS485/MAX485 → Wi-Fi → FastAPI
-```
