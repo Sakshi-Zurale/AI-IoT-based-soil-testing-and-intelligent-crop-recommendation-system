@@ -1,111 +1,150 @@
+<div align="center">
 
-## AI-IoT Based Soil Testing and Crop Recommendation
-### 🚜 Smart Farming • Intelligent Soil • Better Crop Decisions
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:14532D,45:166534,100:0F766E&height=210&section=header&text=KrushiAI&fontSize=56&fontColor=FFFFFF&animation=fadeIn&fontAlignY=38&desc=AI-IoT%20Based%20Soil%20Testing%20%26%20Intelligent%20Crop%20Recommendation&descAlignY=62&descSize=16" width="100%" alt="KrushiAI project banner" />
 
-<p align="center">
-  <strong>🌾 From Soil Testing to AI-Powered Crop Recommendations 🌾</strong>
-</p>
+### 🌱 From Soil Testing to Smarter Crop Decisions
 
-<p align="center">
-  An AI + IoT-based smart agriculture system that helps farmers understand soil conditions and make informed crop decisions.
-</p>
+**An AI + IoT smart-agriculture project for soil analysis and crop recommendation.**
 
-<p align="center">
-  <img src="https://img.shields.io/badge/AI-Machine%20Learning-2E7D32?style=for-the-badge" alt="AI and Machine Learning">
-  <img src="https://img.shields.io/badge/IoT-ESP32-1565C0?style=for-the-badge" alt="IoT ESP32">
-  <img src="https://img.shields.io/badge/Backend-FastAPI-009688?style=for-the-badge" alt="FastAPI">
-  <img src="https://img.shields.io/badge/Frontend-React-61DAFB?style=for-the-badge" alt="React">
-  <img src="https://img.shields.io/badge/Domain-Smart%20Agriculture-8BC34A?style=for-the-badge" alt="Smart Agriculture">
-</p>
+[![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)
+[![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)](https://react.dev/)
+[![FastAPI](https://img.shields.io/badge/FastAPI-009688?style=for-the-badge&logo=fastapi&logoColor=white)](https://fastapi.tiangolo.com/)
+[![scikit-learn](https://img.shields.io/badge/scikit--learn-F7931E?style=for-the-badge&logo=scikitlearn&logoColor=white)](https://scikit-learn.org/)
+[![IoT](https://img.shields.io/badge/IoT-ESP32-0F766E?style=for-the-badge)](https://www.espressif.com/en/products/socs/esp32)
+
+[Features](#-key-features) · [Screenshots](#-application-screenshots) · [Architecture](#-system-architecture) · [Tech Stack](#-technology-stack) · [Run Locally](#-run-locally) · [Workflow](#-typical-user-workflow) · [Limitations](#-notes-and-limitations)
+
+</div>
 
 ---
 
-## 🌾 About the Project
+## 🌾 Overview
 
-**KrushiAI** combines soil sensing, machine learning, and intelligent analysis to support data-driven farming.
+KrushiAI Module 1 is an AI- and IoT-oriented soil testing and crop recommendation application. It brings soil nutrient readings, environmental inputs, location/weather context, machine-learning predictions, and downloadable reports into one workflow.
 
-Farmers can enter soil values manually or use a developer sensor simulator to explore soil analysis and crop recommendations.
+Users can enter soil measurements manually or explore the workflow with the developer sensor simulator. The repository also includes an ESP32 integration area for compatible sensor hardware.
 
-### 🌿 Key Features
+> **Project scope:** This README describes the capabilities documented in the repository. Actual sensor readings require compatible, configured hardware; the simulator is intended for development and demonstration.
 
-- 🧪 **Soil Testing:** Capture Nitrogen (N), Phosphorus (P), Potassium (K), moisture, temperature, and humidity.
-- 📡 **IoT Integration:** Designed for ESP32 and RS485/MAX485-based soil sensor integration.
-- 🤖 **AI Crop Recommendation:** Random Forest model for crop prediction.
-- 🌦️ **Weather & Location:** Supports weather data retrieval and location-aware analysis.
-- 🧠 **Agricultural Knowledge:** Local TF-IDF-based retrieval and AI-assisted explanations.
-- 📄 **PDF Reports:** Generate downloadable soil analysis and crop recommendation reports.
-- 👨‍🌾 **Farmer Management:** Maintain farmer profiles and soil-test history.
-- 🖥️ **Sensor Simulation:** Test the workflow without physical hardware.
+## ✨ Key Features
 
----
-
-## 🧪 Soil Intelligence — NPK
-
-| Nutrient | Full Form | Why It Matters |
-|---|---|---|
-| 🟢 **N** | Nitrogen | Supports leafy and vegetative growth |
-| 🟠 **P** | Phosphorus | Supports root development and energy transfer |
-| 🔵 **K** | Potassium | Supports plant health and stress tolerance |
-
-Additional readings include 🌡️ temperature, 💧 soil moisture, and 💨 humidity.
-
----
-
-## 🛠️ Technology Stack
-
-| Layer | Technologies |
+| Feature | Description |
 |---|---|
-| 🎨 Frontend | React, Vite, Tailwind CSS, Axios, Recharts |
-| ⚙️ Backend | Python, FastAPI, SQLAlchemy, Pydantic |
-| 🧠 Machine Learning | scikit-learn, Random Forest |
-| 🔎 Knowledge Retrieval | TF-IDF |
-| 🗄️ Database | SQLite by default; MySQL supported through configuration |
-| 📡 Hardware | ESP32, RS485/MAX485, NPK sensor, DHT sensor, soil moisture sensor |
-| 📑 Reports | ReportLab PDF |
+| 🧪 Soil testing | Record Nitrogen (N), Phosphorus (P), Potassium (K), soil moisture, temperature, and humidity. |
+| ✍️ Manual input | Enter known soil and environmental values through the application. |
+| 📡 Sensor workflow | Includes ESP32-oriented integration for compatible soil and environmental sensors. |
+| 🧑‍🔬 Development simulation | Explore the workflow without connecting physical sensors. |
+| 🌱 Crop recommendation | Uses a Random Forest model to generate crop predictions from the supported inputs. |
+| 🌦️ Location and weather context | Supports location-aware analysis and weather data retrieval, subject to configuration and availability. |
+| 📚 Agricultural knowledge retrieval | Uses TF-IDF-based retrieval to support agricultural explanations. |
+| 📄 PDF reports | Generate downloadable soil analysis and crop recommendation reports. |
+| 👨‍🌾 Farmer and test records | Maintain farmer profiles and soil-test history in the configured database. |
 
----
+## 🖼️ Application Screenshots
+
+Add your real application screenshots to `docs/screenshots/` using the filenames below, or change the paths to match your own filenames. These image files are **not included automatically** by this README.
+
+<table>
+  <tr>
+    <td width="50%" align="center">
+      <strong>1. Main application / dashboard</strong><br/><br/>
+      <img src="docs/screenshots/01-dashboard.png" alt="KrushiAI dashboard screenshot — add screenshot file" width="100%"/><br/>
+      <sub>Suggested capture: application landing page or dashboard.</sub>
+    </td>
+    <td width="50%" align="center">
+      <strong>2. Soil testing form</strong><br/><br/>
+      <img src="docs/screenshots/02-soil-testing.png" alt="KrushiAI soil testing screenshot — add screenshot file" width="100%"/><br/>
+      <sub>Suggested capture: NPK, moisture, temperature, and humidity inputs.</sub>
+    </td>
+  </tr>
+  <tr>
+    <td width="50%" align="center">
+      <strong>3. Crop recommendation</strong><br/><br/>
+      <img src="docs/screenshots/03-crop-recommendation.png" alt="KrushiAI crop recommendation screenshot — add screenshot file" width="100%"/><br/>
+      <sub>Suggested capture: a real result from the running application.</sub>
+    </td>
+    <td width="50%" align="center">
+      <strong>4. Soil report</strong><br/><br/>
+      <img src="docs/screenshots/04-soil-report.png" alt="KrushiAI soil report screenshot — add screenshot file" width="100%"/><br/>
+      <sub>Suggested capture: report preview or PDF page with dummy/test data.</sub>
+    </td>
+  </tr>
+</table>
+
+If a screenshot is not ready yet, remove its `<img>` element until you add the image. Use only screenshots captured from the actual application; avoid publishing personal farmer information, phone numbers, API keys, or other secrets.
 
 ## 🏗️ System Architecture
 
-```text
-👨‍🌾 Farmer
-    │
-    ▼
-🖥️ React Frontend
-    │
-    ▼
-⚙️ FastAPI Backend
-    │
-    ├── 🧪 Soil Analysis (NPK + Environmental Data)
-    ├── 🌦️ Weather & Location
-    ├── 🤖 Random Forest Crop Prediction
-    ├── 🧠 Agricultural Knowledge Retrieval
-    ├── 📄 PDF Report Generation
-    └── 🗄️ Farmer & Soil-Test Records
+```mermaid
+flowchart TD
+    F[Farmer / User] --> UI[React + Vite Frontend]
+    UI --> API[FastAPI Backend]
+    S[Manual Soil Inputs] --> API
+    SIM[Developer Sensor Simulator] --> API
+    HW[ESP32 + Compatible Sensors] -. configured hardware integration .-> API
 
-📡 ESP32 + Soil Sensors ──► FastAPI
+    API --> SOIL[Soil & Environmental Data Handling]
+    API --> LOC[Location / Weather Context]
+    SOIL --> ML[Random Forest Crop Prediction]
+    ML --> KNOW[TF-IDF Agricultural Knowledge Retrieval]
+    LOC --> KNOW
+    KNOW --> RESULT[Recommendation & Explanation]
+    RESULT --> PDF[PDF Report Generation]
+    API <--> DB[(Configured Database)]
+    RESULT --> UI
+    PDF --> UI
 ```
 
----
+**Request flow:** the user supplies soil values manually or through the available simulation/hardware path; the frontend communicates with the FastAPI backend; the backend coordinates prediction, supporting context, database records, and report generation; results are returned to the UI.
 
-## 🚀 Getting Started
+The diagram is a high-level conceptual view of the documented system, not a claim that every optional integration is connected in every environment.
+
+## 🧰 Technology Stack
+
+| Layer | Technologies documented in the repository |
+|---|---|
+| Frontend | React, Vite, Tailwind CSS, Axios, Recharts |
+| Backend API | Python, FastAPI, SQLAlchemy, Pydantic |
+| Machine learning | scikit-learn, Random Forest |
+| Knowledge retrieval | TF-IDF |
+| Database | SQLite by default; MySQL supported through configuration |
+| Reports | ReportLab PDF generation |
+| IoT / sensors | ESP32 integration area; compatible NPK, environmental and moisture sensors as configured |
+| Development tools | Git, Node.js, npm, Python, PowerShell |
+
+## 🚀 Run Locally
 
 ### Prerequisites
 
-- Python 3.11 recommended
-- Node.js and npm
 - Git
+- Python 3.11 (recommended by the project documentation)
+- Node.js and npm
+- PowerShell on Windows for the supplied `.ps1` scripts
 
-### 1️⃣ Clone the Repository
+### 1. Clone the repository
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/KrushiAI-Module1.git
-cd KrushiAI-Module1
+git clone https://github.com/Sakshi-Zurale/Module1_AI-IoT-based-soil-testing-and-intelligent-crop-recommendation-system.git
+cd Module1_AI-IoT-based-soil-testing-and-intelligent-crop-recommendation-system
 ```
 
-### 2️⃣ Start the Backend
+### 2. Configure environment
 
-Open PowerShell in the project directory:
+Review the root `.env.example` and copy the settings you need into your local environment configuration. Check the frontend's own configuration and example file, if present, before starting the UI. Use your own valid local values for any optional integrations.
+
+**Never commit `.env` files containing real secrets, API keys, passwords, or private farmer information.**
+
+### 3. Start the backend
+
+**Recommended on Windows:** from the repository root, run:
+
+```powershell
+.\run_backend.ps1
+```
+
+The repository script creates a backend virtual environment if needed, installs `backend/requirements.txt`, trains the crop model if the expected model file is missing, runs `pytest`, and starts Uvicorn. If tests fail, resolve the reported issue before relying on the application.
+
+**Manual alternative:**
 
 ```powershell
 cd backend
@@ -116,13 +155,19 @@ python -m app.ml.train
 uvicorn app.main:app --reload
 ```
 
-Backend API: `http://localhost:8000`
+The documented API address is `http://localhost:8000`; interactive API documentation is at `http://localhost:8000/docs`.
 
-API documentation: `http://localhost:8000/docs`
+### 4. Start the frontend
 
-### 3️⃣ Start the Frontend
+Open a **second terminal** at the repository root and run:
 
-Open a second terminal from the project root:
+```powershell
+.\run_frontend.ps1
+```
+
+The script enters `frontend/`, installs npm dependencies if `node_modules` is missing, and runs the Vite development server.
+
+**Manual alternative:**
 
 ```powershell
 cd frontend
@@ -130,65 +175,67 @@ npm install
 npm run dev
 ```
 
-Open the application at `http://localhost:5173`.
+Open the local URL printed by Vite in the terminal. The repository documentation lists `http://localhost:5173` as the expected development address.
 
-### 4️⃣ Configure Environment Variables
+### 5. Try the workflow
 
-Use the example files as templates:
+1. Open the frontend and create/select a farmer profile as supported by the application.
+2. Enter soil values manually or use the developer sensor simulator.
+3. Submit the soil test for analysis.
+4. Provide or confirm location details if using location/weather-aware functionality.
+5. Review the crop recommendation and supporting explanation.
+6. Download the soil-testing / recommendation report.
+7. Review saved soil-test history if available in the configured database.
 
-- Root: `.env.example`
-- Frontend: `frontend/.env.example`
+> **Hardware note:** You can explore the software flow without physical sensors using manual input or the simulator. Physical ESP32/sensor use requires compatible wiring, firmware, serial/network configuration, and backend integration settings for your setup.
 
-Configure local settings as needed. **Never commit real API keys, passwords, or private credentials.**
-
-### 5️⃣ Explore the Workflow
-
-1. 👨‍🌾 Create a farmer profile.
-2. 🧪 Enter soil values or use the sensor simulator.
-3. 📊 Analyze soil conditions.
-4. 🌦️ Provide or confirm location details.
-5. 🤖 Generate a crop recommendation.
-6. 📄 Download the soil-test report.
-7. 📚 Review soil-test history.
-
----
-
-## 📁 Project Structure
+## 📁 Repository Structure
 
 ```text
-KrushiAI-Module1/
-├── backend/       # FastAPI, ML, database, reports
-├── frontend/      # React + Vite application
-├── iot/           # ESP32 and sensor integration
-├── docs/          # Project documentation
-├── .env.example   # Backend configuration template
-├── .gitignore
-├── README.md
+.
+├── backend/       # FastAPI backend, ML pipeline, data access and reports
+├── frontend/      # React + Vite user interface
+├── iot/esp32/     # ESP32 / sensor integration files
+├── docs/          # Project documentation and (recommended) screenshots
+├── .env.example   # Example environment configuration
 ├── run_backend.ps1
-└── run_frontend.ps1
+├── run_frontend.ps1
+└── README.md
 ```
 
----
+## 🧪 Model & Data Notes
 
-## ⚠️ Important Disclaimer
+- The project documents a Random Forest crop prediction model.
+- The backend startup script trains the model if `backend/app/ml/models/crop_model.joblib` is missing.
+- Model recommendations depend on the features, training data, and preprocessing used by the implementation.
+- For credible evaluation, document the dataset source, train/test methodology, metrics, and limitations after verifying them against the actual training pipeline. Do not treat a sample prediction as proof of real-world accuracy.
 
-- 🌱 The bundled ML dataset is for demonstration and training.
-- 🤖 Crop recommendations are decision-support suggestions, not guaranteed agricultural advice.
-- 🧪 Validate the model using reliable, region-specific agricultural data before real-world use.
-- 📡 Real hardware readings depend on compatible sensors, calibration, and integration.
-- 🔐 Do not publish real farmer records, local databases, API keys, or personal information.
+## ⚠️ Notes & Limitations
 
----
+- Crop recommendations are decision-support suggestions, not a substitute for advice from qualified local agricultural experts.
+- Validate predictions with reliable, region-specific agricultural data before real-world use.
+- Sensor readings depend on sensor compatibility, calibration, wiring, and integration configuration.
+- Weather and location features may require configuration and network access.
+- Use dummy or consented data in screenshots and demos. Do not publish real farmer records or credentials.
 
-## 🔮 Project Vision
+## 🔭 Future Improvements
 
-**From Soil Data to Smarter Farming. 🌱**
+Potential next steps, depending on project priorities:
 
-KrushiAI aims to make agricultural technology more accessible by combining IoT sensing, machine learning, and farmer-friendly decision support.
+- Add verified English and Marathi report examples.
+- Document model evaluation with reproducible metrics and dataset provenance.
+- Add real sensor demonstration screenshots and hardware setup instructions.
+- Expand automated tests for API routes, model input validation, and report generation.
+- Improve farmer-facing explanations and accessibility.
 
-<p align="center">
-  🌾 🧪 🤖 📡 🌱
-  <br>
-  <strong>KrushiAI — Growing Intelligence for Agriculture</strong>
-</p>
+## 👩‍💻 Project
 
+Developed as part of the **KrushiAI** smart-agriculture initiative — connecting soil data, machine learning, and farmer-oriented decision support.
+
+<div align="center">
+
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:0F766E,50:166534,100:14532D&height=110&section=footer" width="100%" alt="KrushiAI footer banner" />
+
+**KrushiAI — Growing Intelligence for Agriculture 🌱**
+
+</div>
