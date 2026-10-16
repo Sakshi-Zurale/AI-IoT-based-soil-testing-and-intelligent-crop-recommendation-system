@@ -1,6 +1,5 @@
 <div align="center">
-
-<img src="https://capsule-render.vercel.app/api?type=waving&color=0:14532D,45:166534,100:0F766E&height=210&section=header&text=KrushiAI&fontSize=56&fontColor=FFFFFF&animation=fadeIn&fontAlignY=38&desc=AI-IoT%20Based%20Soil%20Testing%20%26%20Intelligent%20Crop%20Recommendation&descAlignY=62&descSize=16" width="100%" alt="KrushiAI project banner" />
+<img src="![alt text](image.png)">
 
 ### 🌱 From Soil Testing to Smarter Crop Decisions
 
@@ -42,31 +41,36 @@ Users can enter soil measurements manually or explore the workflow with the deve
 
 ## 🖼️ Application Screenshots
 
-> Add your actual screenshots to `docs/screenshots/` with the filenames shown below. These image files must be added to the repository separately for GitHub to display them.
+Add your real application screenshots to `docs/screenshots/` using the filenames below, or change the paths to match your own filenames. These image files are **not included automatically** by this README.
 
 <table>
   <tr>
     <td width="50%" align="center">
-      <strong>1. KrushiAI Dashboard</strong><br/><br/>
-      <img src="docs/screenshots/01-dashboard.png" alt="KrushiAI Dashboard" width="100%"/>
+      <strong>1. Main application / dashboard</strong><br/><br/>
+      <img src="c:\Users\PC\Pictures\Screenshots\Screenshot 2026-10-13 223602.png" alt="KrushiAI dashboard screenshot — add screenshot file" width="100%"/><br/>
+      <sub>Suggested capture: application landing page or dashboard.</sub>
     </td>
     <td width="50%" align="center">
-      <strong>2. Soil Testing</strong><br/><br/>
-      <img src="docs/screenshots/02-soil-testing.png" alt="KrushiAI Soil Testing" width="100%"/>
+      <strong>2. Soil testing form</strong><br/><br/>
+      <img src="c:\Users\PC\Pictures\Screenshots\Screenshot 2026-10-13 223628.png" alt="KrushiAI soil testing screenshot — add screenshot file" width="100%"/><br/>
+      <sub>Suggested capture: NPK, moisture, temperature, and humidity inputs.</sub>
+    </td>
+  </tr>
+  <tr>
+    <td width="50%" align="center">
+      <strong>3. Crop recommendation</strong><br/><br/>
+      <img src="c:\Users\PC\Pictures\Screenshots\Screenshot 2026-10-13 223628.png" alt="KrushiAI crop recommendation screenshot — add screenshot file" width="100%"/><br/>
+      <sub>Suggested capture: a real result from the running application.</sub>
+    </td>
+    <td width="50%" align="center">
+      <strong>4. Soil report</strong><br/><br/>
+      <img src="c:\Users\PC\Pictures\Screenshots\Screenshot 2026-10-13 223628.png" alt="KrushiAI soil report screenshot — add screenshot file" width="100%"/><br/>
+      <sub>Suggested capture: report preview or PDF page with dummy/test data.</sub>
     </td>
   </tr>
 </table>
 
-**Screenshot folder structure:**
-
-```text
-docs/
-└── screenshots/
-    ├── 01-dashboard.png
-    └── 02-soil-testing.png
-```
-
-Capture screenshots from the running application and use dummy/test data. Do not publish personal farmer information, phone numbers, API keys, passwords, or other secrets. Add further screenshots to this gallery only after capturing the real crop recommendation and report screens.
+If a screenshot is not ready yet, remove its `<img>` element until you add the image. Use only screenshots captured from the actual application; avoid publishing personal farmer information, phone numbers, API keys, or other secrets.
 
 ## 🏗️ System Architecture
 
